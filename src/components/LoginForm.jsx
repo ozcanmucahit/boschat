@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const projectID = '88ec11aa-ea55-49f8-ba5a-abe08ee3259e';
+const projectID = '04e21c77-123e-49dc-bd04-9f7a75a8ca17';
+
+
+
+
 
 const Modal = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -18,21 +23,27 @@ const Modal = () => {
 
       localStorage.setItem('username', username);
       localStorage.setItem('password', password);
+      
+
+    
 
       window.location.reload();
       setError('');
     } catch (err) {
-      setError('Oops, incorrect credentials.');
+      setError('Bir sorun var!');
     }
   };
+  
+
+
 
   return (
     <div className="wrapper">
       <div className="form">
         <h1 className="title">BOŞ Chat</h1>
         <form onSubmit={handleSubmit}>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Kullanıcı adı" required />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Şifre" required />
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Username" required  id="text"  />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required />
           <div align="center">
             <button type="submit" className="button">
               <span>Giriş yap </span>

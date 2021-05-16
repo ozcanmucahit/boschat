@@ -8,7 +8,7 @@ class LOGOUT extends Component {
             this.lgout= this.lgout.bind(this)
     }
     lgout(){
-       localStorage.clear();
+      localStorage.clear();
         window.location.reload();
     }
 
